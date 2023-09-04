@@ -18,7 +18,7 @@ namespace NLayer.Core.DTOs
         {
             return new CustomResponseDto<T> { Data = data, StatusCode = statusCode };
         }
-        public static CustomResponseDto<T> Succes(int statusCode) 
+        public static CustomResponseDto<T> Success(int statusCode) 
         {
             return new CustomResponseDto<T> { StatusCode = statusCode };
         }

@@ -57,6 +57,7 @@ namespace NLayer.Service.Services
             return await _repository.GetAsync(id);
         }
 
+     
         public async Task RemoveRangeAsync(IEnumerable<T> entities)
         {
             _repository.RemoveRange(entities);
