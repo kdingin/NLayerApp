@@ -15,14 +15,14 @@
         </tr>
     </thread>
     <tbody>
-        @foreach(var item in model)
+        @foreach(var item in Model)
         {
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Price</td>
             <td>@item.Stock</td>
-            <td>@item.Category</td>
+            <td>@item.Category.Name</td>
             <td>@item.CreatedDate</td>
         </tr>
         }
