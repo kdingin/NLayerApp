@@ -18,7 +18,7 @@ namespace NLayer.API.Controllers
         public ProductsController(IMapper mapper, IService<Product> service, IProductService productService)
         {
             _mapper = mapper;
-            this._service = productService;
+            this._service = productService; 
         }
         [HttpGet("[action]")]//methodun ismini direkt olarak alır.
         public async Task<IActionResult> GetProductsWithCategory()
