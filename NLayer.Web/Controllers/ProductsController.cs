@@ -2,11 +2,13 @@
 
 namespace NLayer.Web.Controllers
 {
-    public class ProductsController1 : Controller
+    public class ProductsController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
+           
         }
     }
 }
