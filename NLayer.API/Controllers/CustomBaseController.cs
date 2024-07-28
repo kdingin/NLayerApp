@@ -13,12 +13,12 @@ namespace NLayer.API.Controllers
         {
             if (response.StatusCode == 204)
                 return new ObjectResult(null)
-            {
-                StatusCode = response.StatusCode,
-            };
+                {
+                   StatusCode = response.StatusCode,
+                };
             return new ObjectResult(response)
             {
-                StatusCode = response.StatusCode
+                StatusCode = response.StatusCode,
             };
         }
     }

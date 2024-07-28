@@ -41,7 +41,7 @@ namespace NLayer.Repository.Repositories
         }
 
         public IQueryable<T> GetAll()
-        {
+        {//AsNoTracking: EfCore çekmiş olduğu yasaları memory e almasın ki daha performanslı çalışsın. Eğer kullanmazsak çektiğimiz dataları memorye alır ve anlık olarak durumlarını track eder. performans kaybına neden olur despose edilene kadar.
             return _dbSet.AsNoTracking().AsQueryable();
         }
 
@@ -51,7 +51,7 @@ namespace NLayer.Repository.Repositories
         }
 
         public void RemoveRange(IEnumerable<T> entities)
-        {
+        {//Remove, update in asenkron olmamasının sebebi direkt veritabanı üzerinde değişiklik yapmadığı için, sadece aslında entitynin state durumunu değiştirmektedir. Ne zaman biz SaveChanges deriz işte ozaman veritabanı üzerinde bir değişiklik görürüz. Bu yüzden bu işlem üzerinde async tanımlaması yapmak gereksizdir.
             _dbSet.RemoveRange(entities);
         }
 

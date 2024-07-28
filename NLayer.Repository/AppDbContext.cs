@@ -19,7 +19,7 @@ namespace NLayer.Repository
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }//The productfeatures can be processed through the product, but for now, I haven't needed this.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {//AppltConfigurationsFromAssembly: Assembly içerisindeki içinde "IEntityTypeConfiguration" bulunan methodları alıp işler.
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }

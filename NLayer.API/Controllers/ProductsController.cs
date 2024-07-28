@@ -20,7 +20,7 @@ namespace NLayer.API.Controllers
             _mapper = mapper;
             this._service = productService; 
         }
-        [HttpGet("[action]")]//methodun ismini direkt olarak alır.
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetProductsWithCategory()
         {
             return CreateActionResult(await _service.GetProductsWithCategory());
@@ -47,13 +47,13 @@ namespace NLayer.API.Controllers
         {
             var products = await _service.AddAsync(_mapper.Map<Product>(productDto));
             var productsDtos = _mapper.Map<ProductDto>(products);
-            return CreateActionResult(CustomResponseDto<ProductDto>.Success(200, productsDtos));
+            return CreateActionResult(CustomResponseDto<ProductDto>.Success(201, productsDtos));
         }
         [HttpPut]
         public async Task<IActionResult> Update(ProductUpdateDto productDto)
         {
             await _service.UpdateAsync(_mapper.Map<Product>(productDto));
-            return CreateActionResult(CustomResponseDto<NoContentDto>.Success(200));
+            return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

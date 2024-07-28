@@ -109,5 +109,10 @@ namespace NLayer.Caching
         {
             _memoryCache.Set(CacheProductKey, await _repository.GetAll().ToListAsync());
         }
+
+        Task<CustomResponseDto<List<ProductWithCategoryDto>>> IProductService.GetProductsWithCategory()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

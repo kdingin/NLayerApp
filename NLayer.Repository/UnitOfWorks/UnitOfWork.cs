@@ -9,21 +9,21 @@ namespace NLayer.Repository.UnitOfWorks
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly AppDbContext context;
+        private readonly AppDbContext _context;
 
         public UnitOfWork(AppDbContext context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public void Commit()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public async Task CommitAsync()
         {
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

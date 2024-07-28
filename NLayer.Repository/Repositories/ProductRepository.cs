@@ -17,7 +17,8 @@ namespace NLayer.Repository.Repositories
 
         public async Task<List<Product>> GetProductsWithCategory()
         {
-            //Eager Loading
+            //Eager Loading: Productların çekildiği anda Category leride çekersek Eager loading olur.
+            //Lazy Loading: Eğer Product bağlı Category'de ihtitaç doğrultusunda daha sonra çekersek lazy loading olur.
             return await _context.Products.Include(x => x.Category).ToListAsync();
         }
     }
